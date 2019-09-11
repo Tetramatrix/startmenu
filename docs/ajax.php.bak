@@ -629,7 +629,7 @@
 				  [
 						"Headline" => ":: rlecompression ::",
 						"Subheadline" => "",
-						"Text" => "RangeSlider is a WPF .dll for Winforms.",
+						"Text" => "",
 						"Islink" => "false",
 						"Link" =>  "https://tetramatrix.github.io/rlecompression/",
 						"Image" => "http://mt1.google.com/vt/lyrs=s&x=1342&y=3160&z=12",
@@ -647,7 +647,7 @@
 				  [
 						"Headline" => ":: rssreader ::",
 						"Subheadline" => "",
-						"Text" => "RangeSlider is a WPF .dll for Winforms.",
+						"Text" => "",
 						"Islink" => "false",
 						"Link" =>  "https://tetramatrix.github.io/rssreader/",
 						"Image" => "http://mt1.google.com/vt/lyrs=s&x=1342&y=3161&z=12",
@@ -870,6 +870,6 @@
 		}
 	}
 	
-	echo json_encode($arr);
+	echo json_encode($s_x);
 	
 	

@@ -870,6 +870,6 @@
 		}
 	}
 	
-	echo json_encode($arr);
+	echo json_encode($y_z);
 	
 	

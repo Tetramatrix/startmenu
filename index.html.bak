@@ -35,6 +35,7 @@
                 <p class="subheadline">${Subheadline}</p>
                 <hr class="divider">
                 <p>${Text}</p>
+                <img class="img" src="${Image}" width="${Width}" height="${Height}"/>
             </div>
             </a>
         </div>

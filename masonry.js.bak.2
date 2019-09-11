@@ -163,17 +163,9 @@
         {
           var container = $j('#tx-charbeitsbeispiele-pi1 #container');
           container.masonry();
-          var toggle = this.url.match(/toggle=on/g);
-          var clrscreen = this.url.match(/screen=clear/g);
-          
-          if (clrscreen) {
-          	container.empty();
-          }
-          
-          $j.each(json.reverse(), function(idx, ele)
+          $j.each(json, function(idx, ele)
           {
-            //if (ele.toggle == "on")
-            if (toggle)
+            if (ele.toggle == "on")
             {
               if (ele.Additem == "Append" && ele.Isimage == "true" )
               {

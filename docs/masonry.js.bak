@@ -163,9 +163,17 @@
         {
           var container = $j('#tx-charbeitsbeispiele-pi1 #container');
           container.masonry();
-          $j.each(json, function(idx, ele)
+          var toggle = this.url.match(/toggle=on/g);
+          var clrscreen = this.url.match(/screen=clear/g);
+          
+          if (clrscreen) {
+          	container.empty();
+          }
+          
+          $j.each(json.reverse(), function(idx, ele)
           {
-            if (ele.killbit == "on")
+            //if (ele.toggle == "on")
+            if (toggle)
             {
               if (ele.Additem == "Append" && ele.Isimage == "true" )
               {
@@ -262,7 +270,7 @@
     $j(window).unload(function()
     {
       var reloadLink = $j("#tx-charbeitsbeispiele-pi1 #menu li:first").find("a"); 
-      var theHref = reloadLink.attr('href').replace(/\?killbit=.*/g, '');
+      var theHref = reloadLink.attr('href').replace(/\?toggle=.*/g, '');
       reloadLink.attr("href", theHref + "&screen=reload");
       $j.get(reloadLink.attr('href'), function(response) {
           // screen unloaded;    
@@ -309,31 +317,31 @@
           // Alle anderen buttons off
           if ($j(ele).find('a').text() != root_button) {
             $j(ele).removeClass('ref_act').addClass('ref_no');
-            var theHref = $j(ele).find('a').attr("href").replace(/\?killbit=.*/g, '');
-            $j(ele).find('a').attr("href", theHref + "?killbit=off");
+            var theHref = $j(ele).find('a').attr("href").replace(/\?toggle=.*/g, '');
+            $j(ele).find('a').attr("href", theHref + "?toggle=off");
           } else {
             // Alle buttons on
             $j(ele).removeClass('ref_no').addClass('ref_act');
-            var theHref = $j(ele).find('a').attr("href").replace(/\?killbit=.*/g, '');
-            $j(ele).find('a').attr("href", theHref + "?killbit=on");
+            var theHref = $j(ele).find('a').attr("href").replace(/\?toggle=.*/g, '');
+            $j(ele).find('a').attr("href", theHref + "?toggle=on");
           }
         });
       }
     
-      var params = "?killbit=on";
+      var params = "?toggle=on";
     
       $j.each(menu, function(idx, ele) {
         if ($j(ele).find('a').text() == n) {
          params += "&but="+n;
           $j(ele).removeClass('ref_no').addClass('ref_act');
-          var theHref = $j(ele).find('a').attr("href").replace(/\?killbit=.*/g, '');
+          var theHref = $j(ele).find('a').attr("href").replace(/\?toggle=.*/g, '');
           $j(ele).find('a').attr("href", theHref + params);
     
         } else if ($j(ele).find('a').text() == root_button && $j(ele).hasClass('ref_act')) {
           params += "&screen=clear";
           $j(ele).removeClass('ref_act').addClass('ref_no');
-          var theHref = $j(ele).find('a').attr("href").replace(/\?killbit=.*/g, '');
-          $j(ele).find('a').attr("href", theHref + "?killbit=off");
+          var theHref = $j(ele).find('a').attr("href").replace(/\?toggle=.*/g, '');
+          $j(ele).find('a').attr("href", theHref + "?toggle=off");
         }
       });
       $j(this).trigger('mouseleave');
@@ -342,16 +350,16 @@
     function() {
       var n = $j(this).find('a').text();
       if (n != root_button) {
-        var params = "?killbit=off";
+        var params = "?toggle=off";
         $j.each(menu, function(idx, ele) {
           if ($j(ele).find('a').text() == n) {
             if ($j(ele).hasClass('ref_no')) {
               $j(ele).removeClass('ref_no').addClass('ref_act');
-              var theHref = $j(ele).find('a').attr("href").replace(/\?killbit=.*/g, '');
-              $j(ele).find('a').attr("href", theHref + "?killbit=on&screen=clear");
+              var theHref = $j(ele).find('a').attr("href").replace(/\?toggle=.*/g, '');
+              $j(ele).find('a').attr("href", theHref + "?toggle=on&screen=clear");
             } else {
               $j(ele).removeClass('ref_act').addClass('ref_no');
-              var theHref = $j(ele).find('a').attr("href").replace(/\?killbit=.*/g, '');
+              var theHref = $j(ele).find('a').attr("href").replace(/\?toggle=.*/g, '');
               $j(ele).find('a').attr("href", theHref + params);
             }
           }
@@ -360,8 +368,8 @@
             // Clear Screen
             params += "&screen=clear";
             $j(ele).removeClass('ref_act').addClass('ref_no');
-            var theHref = $j(ele).find('a').attr("href").replace(/\?killbit=.*/g, '');
-            $j(ele).find('a').attr("href", theHref + "?killbit=off");
+            var theHref = $j(ele).find('a').attr("href").replace(/\?toggle=.*/g, '');
+            $j(ele).find('a').attr("href", theHref + "?toggle=off");
     
           }
         });
@@ -369,13 +377,13 @@
         $j.each(menu, function(idx, ele) {
           if ($j(ele).find('a').text() == root_button) {
             $j(this).removeClass('ref_no').addClass('ref_act');
-            var theHref = $j(this).find('a').attr("href").replace(/\?killbit=.*/g, '');
-            $j(this).find('a').attr("href", theHref + "?killbit=on");
+            var theHref = $j(this).find('a').attr("href").replace(/\?toggle=.*/g, '');
+            $j(this).find('a').attr("href", theHref + "?toggle=on");
     
           } else if ($j(ele).find('a').text() != root_button) {
             $j(ele).removeClass('ref_act').addClass('ref_no');
-            var theHref = $j(ele).find('a').attr("href").replace(/\?killbit=.*/g, '');
-            $j(ele).find('a').attr("href", theHref + "?killbit=off");
+            var theHref = $j(ele).find('a').attr("href").replace(/\?toggle=.*/g, '');
+            $j(ele).find('a').attr("href", theHref + "?toggle=off");
           }
         });
       }
@@ -468,8 +476,8 @@
         }); // each
         var reloadLink = $j("#tx-charbeitsbeispiele-pi1 #menu li:first");
         reloadLink.removeClass('ref_no').addClass('ref_act');
-        var theHref = reloadLink.find('a').attr("href").replace(/\?killbit=.*/g, '');
-        reloadLink.find('a').attr("href", theHref + "?killbit=off");  
+        var theHref = reloadLink.find('a').attr("href").replace(/\?toggle=.*/g, '');
+        reloadLink.find('a').attr("href", theHref + "?toggle=off");  
       }
     });
   }

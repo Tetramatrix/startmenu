@@ -163,9 +163,17 @@
         {
           var container = $j('#tx-charbeitsbeispiele-pi1 #container');
           container.masonry();
-          $j.each(json, function(idx, ele)
+          var toggle = this.url.match(/toggle=on/g);
+          var clrscreen = this.url.match(/screen=clear/g);
+          
+          if (clrscreen) {
+          	container.empty();
+          }
+          
+          $j.each(json.reverse(), function(idx, ele)
           {
-            if (ele.toggle == "on")
+            //if (ele.toggle == "on")
+            if (toggle)
             {
               if (ele.Additem == "Append" && ele.Isimage == "true" )
               {
@@ -397,7 +405,7 @@
         });
         boxCount = response.length;
         counter = 0;
-        $j.each(response, function(idx, ele)
+        $j.each(response.reverse(), function(idx, ele)
         {
           if (ele.Isimage == "true")
           {

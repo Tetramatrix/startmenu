@@ -665,6 +665,25 @@
 				];
 	
 	$s_x = [
+			[
+					"Headline" => ":: Startmenu ::",
+					"Subheadline" => "",
+					"Text" => "",
+					"Islink" => "false",
+					"Link" =>  "https://tetramatrix.github.io/startmenu/",
+					"Image" => "http://mt1.google.com/vt/lyrs=s&x=1343&y=3162&z=12",
+					"Isimage" => "true",
+					"Target" => "_self",
+					"Height" => "300px",
+					"Width" => "374px",
+					"toggle" => "on",
+					"Kategorie" => "on",
+					"Sorting" => "off",
+					"brickid" => "off",
+					"Additem" => "Prepend",
+					"OnClick" => "",
+				]	,
+				
 				[
 					"Headline" => ":: Sweepstake (periodical events) ::",
 					"Subheadline" => "",
@@ -870,6 +889,6 @@
 		}
 	}
 	
-	echo json_encode($arr);
+	echo json_encode($s_x);
 	
 	
