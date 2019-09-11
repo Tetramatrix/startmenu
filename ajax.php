@@ -1,0 +1,89 @@
+<?php
+	
+	//require_once ( "JSON.php" );
+
+	header('content-type=> text/html; charset=utf-8');
+	header("Expires=> Sat, 1 Jan 2005 00=>00=>00 GMT");
+	header("Last-Modified=> ".gmdate( "D, d M Y H=>i=>s")."GMT");
+	header("Cache-Control=> no-cache, must-revalidate");
+	header("Pragma=> no-cache");
+	
+	
+
+	$json = [[
+			"Headline" => "headline",
+			"Subheadline" => "headline",
+			"Text" => "headline",
+			"Islink" => "true",
+			"Link" =>  "https://tetramatrix.github.io/maxmediamasonry/",
+			"Image" => "headline",
+			"Isimage" => "headline",
+			"Target" => "_self",
+			"Height" => "300px",
+			"Width" => "",
+			"killbit" => "on",
+			"Kategorie" => "on",
+			"Sorting" => "off",
+			"brickid" => "off",
+			"Additem" => "Prepend",
+			"OnClick" => "",
+		],
+		[
+			"Headline" => "headline",
+			"Subheadline" => "headline",
+			"Text" => "headline",
+			"Islink" => "false",
+			"Link" => "https://tetramatrix.github.io/maxmediamasonry/",
+			"Image" => "headline",
+			"Isimage" => "headline",
+			"Target" => "_self",
+			"Height" => "300px",
+			"Width" => "",
+			"killbit" => "on",
+			"Kategorie" => "off",
+			"Sorting" => "off",
+			"brickid" => "off",
+			"Additem" => "Prepend",
+			"OnClick" => "",
+		],
+		[	"Headline" => "headline",
+			"Subheadline" => "headline",
+			"Text" => "headline",
+			"Islink" => "false",
+			"Link" =>  "https://tetramatrix.github.io/maxmediamasonry/",
+			"Image" => "headline",
+			"Isimage" => "headline",
+			"Target" => "_self",
+			"Height" => "300px",
+			"Width" => "",
+			"killbit" => "on",
+			"Kategorie" => "off",
+			"Sorting" => "off",
+			"brickid" => "off",
+			"Additem" => "Prepend",
+			"OnClick" => "",
+		],
+		[
+			"Headline" => "headline",
+			"Subheadline" => "headline",
+			"Text" => "headline",
+			"Islink" => "false",
+			"Link" =>  "https://tetramatrix.github.io/maxmediamasonry/",
+			"Image" => "headline",
+			"Isimage" => "headline",
+			"Target" => "_self",
+			"Height" => "300px",
+			"Width" => "",
+			"killbit" => "on",
+			"Kategorie" => "on",
+			"Sorting" => "off",
+			"brickid" => "off",
+			"Additem" => "Prepend",
+			"OnClick" => "",
+		]		
+	 ];
+	
+	echo json_encode($json);
+	//echo $json;
+	
+	

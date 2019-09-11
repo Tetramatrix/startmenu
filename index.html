@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="system.css">
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script> 
+<script type="text/javascript" src="jquery-ui-1.8.22.custom.min.js"></script> 
+<script type="text/javascript" src="jquery.masonry.min.js"></script> 
+<script type="text/javascript" src="modernizr.custom.94949.js"></script> 
+<script type="text/javascript" src="jquery.tmpl.min.js"></script> 
+<script type="text/javascript" src="jquery.imagesloaded.js"></script>
+<script type="text/javascript" src="masonry.js"></script> 
+</head>
+<body>
+<script id="brickTemplate" type="text/html">
+    <div style="width:${Width};height:${Height}" class="brick">
+        <div style="width:${Width};height:${Height}" class="background">
+            <a class="arrow" href="${Link}" onClick="${OnClick}" target="${Target}">
+            <div class="teaser">
+                <h3>${Headline}</h3>
+                <p class="subheadline">${Subheadline}</p>
+                <hr class="divider">
+                <p>${Text}</p>
+            </div>
+            <img class="img" src="${Image}" width="${Width}" height="${Height}"/>
+            </a>
+        </div>
+    </div>    
+</script>
+<script id="defaultTemplate" type="text/html">
+    <div style="width:${Width};height:${Height}" class="brick">
+        <div style="width:${Width};height:${Height}" class="background">
+            <a class="arrow" href="${Link}" onClick="${OnClick}" target="${Target}">
+            <div class="teaser">
+                <h3>${Headline}</h3>
+                <p class="subheadline">${Subheadline}</p>
+                <hr class="divider">
+                <p>${Text}</p>
+            </div>
+						${Headline}
+            </a>
+        </div>
+    </div>    
+</script>
+<script id="singleviewTemplate" type="text/html">
+    <div style="float:left;margin-top:-10px">
+        <p>{{html bodytext}}</p>
+    </div>
+    <div style="float:right;align:right"><a class="bb" href="javascript:return false;" onClick="maxmedia.gridview();return false;">[<b>X</b>] back</a></div>
+</script>
+
+
+
+<div id="tx-charbeitsbeispiele-pi1">
+	 
+		  <div class="wrapper">
+		    <div style="float:left;padding:0px;margin:0px;">
+		    	<div class="shadow">	
+				    	<ul class="menu" id="menu">
+						    <li class="ref_no"><a href="ajax.php" class="refid">Home</a></li>
+						    <li class="ref_no"><a href="ajax.php" class="refid">A</a></li>
+						    <li class="ref_no"><a href="ajax.php" class="refid">B</a></li>
+						    <li class="ref_no"><a href="ajax.php" class="refid">C</a></li>
+						    <li class="ref_no"><a href="ajax.php" class="refid">D</a></li>
+						    <li class="ref_no"><a href="ajax.php" class="refid">E</a></li>
+						</ul>
+					</div>    		
+		  </div>	    
+    <div id="singleview" style="top:-800px" class="singleview"></div>
+		<div id="container"></div>
+	</div>
+</div>
+</body>
