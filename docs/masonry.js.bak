@@ -312,6 +312,7 @@
         var n = $j(this).find('a').text();
         // Klick "Alle"-Button
         if (n == root_button) {
+        	container.empty();
           $j.each(menu, function(idx, ele)
           {
           // Alle anderen buttons off
@@ -405,7 +406,7 @@
         });
         boxCount = response.length;
         counter = 0;
-        $j.each(response, function(idx, ele)
+        $j.each(response.reverse(), function(idx, ele)
         {
           if (ele.Isimage == "true")
           {

@@ -312,6 +312,8 @@
         var n = $j(this).find('a').text();
         // Klick "Alle"-Button
         if (n == root_button) {
+        	var container = $j('#tx-charbeitsbeispiele-pi1 #container');
+        	container.empty();
           $j.each(menu, function(idx, ele)
           {
           // Alle anderen buttons off
