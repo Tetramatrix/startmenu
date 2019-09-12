@@ -54,7 +54,7 @@
 	 
 		  <div class="wrapper">
 		    <div style="float:left;padding:0px;margin:0px;">
-		    	<div class="shadow">	
+		    	<div class="shadow" id="navigation">	
 				    	<ul class="menu" id="menu">
 						    <li class="ref_no"><a href="home.json" class="refid">Home</a></li>
 						    <li class="ref_no"><a href="a_f.json" class="refid">A-F</a></li>
@@ -101,17 +101,5 @@
 		<script>
 		(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
-</div>
-	
-<div style="clear:both;">
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<!-- bbrb4 -->
-	<ins class="adsbygoogle"
-	     style="display:inline-block;width:728px;height:90px"
-	     data-ad-client="ca-pub-6449563648591184"
-	     data-ad-slot="5688286351"></ins>
-	<script>
-	(adsbygoogle = window.adsbygoogle || []).push({});
-	</script>
 </div>
 </body>

@@ -534,6 +534,9 @@ $("#spinner").bind("ajaxStop", function() { $(this).hide(); })
 $("#spinner").bind("ajaxError", function() { $(this).hide(); });
 */
 
+
+
+
 var maxmedia;
 var $ = jQuery.noConflict();
 $(document).ready(function() {
@@ -541,4 +544,15 @@ $(document).ready(function() {
   maxmedia = new Arbeitsbeispiele($);
   maxmedia.reload();
   maxmedia.ajax();
+  
+  const nav = document.querySelector('#navigation');
+	const navTop = nav.offsetTop;
+
+	function stickyNavigation() {
+  	console.log('navTop = ' + navTop);
+  	console.log('scrollY = ' + window.scrollY);
+	}
+
+	window.addEventListener('scroll', stickyNavigation);
+
 });
