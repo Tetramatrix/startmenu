@@ -14,7 +14,7 @@
   var url_stack = [];
   var url_back = [];
   var root_but = "Home";
-  var about_but = "About Us";
+  var about_but = "About Me";
   var mobile = false;
     
   function gridview ()
