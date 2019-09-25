@@ -7,8 +7,14 @@
 <script type="text/javascript" src="jquery.masonry.min.js"></script> 
 <script type="text/javascript" src="modernizr.custom.94949.js"></script> 
 <script type="text/javascript" src="jquery.tmpl.min.js"></script> 
-<script type="text/javascript" src="jquery.imagesloaded.js"></script>
+<!--<script type="text/javascript" src="jquery.imagesloaded.js"></script>-->
 <script type="text/javascript" src="masonry.js"></script> 
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js"></script>    
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
+
 </head>
 <body>
 <script id="brickTemplate" type="text/html">
@@ -52,7 +58,7 @@
 <div id="tx-charbeitsbeispiele-pi1">
 	 
 		  <div class="wrapper">
-		    <div  id="navigation" style="float:left;padding-left:40px;margin:0px;">
+		    <div  id="navigation" style="float:left;padding:0px;margin:0px;">
 		    	<div class="fixed-nav">	
 				    	<ul class="menu shadow" id="menu">
 						    <li class="ref_no"><a href="home.json" class="refid">Home</a></li>
@@ -91,7 +97,7 @@
 		<!-- google_ad_section_end -->
 	</div>	
 </div>
-<div style="float:left;">
+<div class="fixed-nav" style="float:left;">
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<!-- bbrb1,1 -->
 		<ins class="adsbygoogle"
