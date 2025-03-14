@@ -144,13 +144,7 @@ on "2004.03.28T15:41-0800" r (P 0 S 0 V 0 Com 0 Tol -1 Env -1 SF 0 Edu -2 Can 0 
 <a href="https://tetramatrix.github.io/weighteddelaunay/">weighteddelaunay</a></li>
 </ul>	
 
-<script>
-    const links = document.querySelectorAll('a');
-    links.forEach(link => {
-        link.addEventListener('mouseover', () => link.style.color = '#0056b3');
-        link.addEventListener('mouseout', () => link.style.color = '#007BFF');
-    });
-</script>
+
 </body>
 </body>
 </html>
