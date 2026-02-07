@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>GTR9 Pro v2.2 Board Replacement Journal</title>
+    <meta name="description" content="A detailed photo journal documenting the 4-hour replacement of the GTR9 Pro board from v1.0 to v2.2">
+    <meta name="keywords" content="GTR9 Pro, board replacement, v2.2 upgrade, hardware mod, electronics repair, DIY electronics">
+    <meta name="author" content="Tetramatrix">
+    <meta property="og:title" content="GTR9 Pro v2.2 Board Replacement Journal">
+    <meta property="og:description" content="A detailed photo journal documenting the 4-hour replacement of the GTR9 Pro board from v1.0 to v2.2">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="v2.2_board_cpu_front.jpg">
+
+    <!-- Google Ads (using template IDs) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6449563648591184"
+         crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="image/x-icon" href="logo_small_32x32.png">
+
+    <style>
+        .new-badge {
+            background-color: #ff0000;
+            color: white;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 50%;
+            font-size: 14px;
+            display: inline-block;
+            margin-left: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Star-shaped badge */
+        .new-badge {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            padding: 8px 12px;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .journal-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .timeline-item {
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(45, 45, 48, 0.7);
+            border-radius: 8px;
+            border-left: 4px solid #64b5f6;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        /* Image optimization for large photos */
+        img[src$=".jpg"], img[src$=".jpeg"], img[src$=".png"], img[src$=".gif"] {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+<script>
+function scrollToSection(targetId) {
+    const targetElement = document.getElementById(targetId.replace('#', ''));
+    if (targetElement) {
+        // Überprüfe, ob das Element bereits sichtbar ist
+        const rect = targetElement.getBoundingClientRect();
+        const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+
+        // Wenn das Element sichtbar ist, aber am oberen Rand, scrollen wir so, dass es in der Mitte ist
+        if (isVisible && rect.top < window.innerHeight * 0.1) {
+            // Scrollen, sodass das Element in der Mitte des Viewports ist
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        } else {
+            // Ansonsten normales Scrollen
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+}
+
+// Alternative Funktion, die immer zentriert, wenn das Element bereits sichtbar ist
+function smartScrollToSection(targetId) {
+    const targetElement = document.getElementById(targetId.replace('#', ''));
+    if (targetElement) {
+        const rect = targetElement.getBoundingClientRect();
+        const isInViewport = rect.top <= window.innerHeight && rect.bottom >= 0;
+
+        if (isInViewport) {
+            // Wenn das Element bereits sichtbar ist, zentriere es
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        } else {
+            // Ansonsten scroll zum Anfang des Elements
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+}
+</script>
+</body>
+    <aside class="left">
+        <nav class="fixed-nav">
+            <!-- Google Ads - Left Sidebar -->
+            <!-- Ad code removed for clarity -->
+        </nav>
+    </aside>
+
+    <aside class="right">
+        <!-- Google Ads - Right Sidebar -->
+        <!-- Ad code removed for clarity -->
+    </aside>
+
+    <main class="wikidoc">
+        <header class="page-header">
+            <h1>🔧 GTR9 Pro v2.2 Board Replacement <span class="new-badge">🆕 Journal</span></h1>
+            <h3>Replacing v1.0 board with v2.2 due to defective Intel NIC</h3>
+            <figure class="logo-container">
+                <img src="v2.2_board_cpu_front.jpg" alt="GTR9 Pro v2.2 Board" class="logo" style="max-width: 300px;">
+            </figure>
+        </header>
+
+    <!-- Horizontal Navigation Bar -->
+    <nav class="horizontal-toc-nav">
+        <ul>
+            <li><a href="#project-overview">Project Overview</a></li>
+            <li><a href="#preparation">Preparation</a></li>
+            <li><a href="#disassembly-v1">Demontage V1.0</a></li>
+            <li><a href="#assembly-v2">Assembly V2.2</a></li>
+            <li><a href="#comparison">V1.0 vs V2.2</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#other-tools">Check our other tools</a></li>
+        </ul>
+    </nav>
+
+    <!-- Project Overview Section -->
+    <section class="what-is-aicono-section" id="project-overview">
+        <div class="cta-box">
+            <span class="nav-arrow-down" onclick="smartScrollToSection('#preparation')">⬇️</span>
+            <span class="nav-arrow-up" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">⬆️</span>
+            <h2>📖 Project Overview</h2>
+            <p>This journal documents my 4-hour journey replacing the GTR9 Pro board from v1.0 to v2.2. The swap was necessary due to the defective Intel E610 10Gbps Ethernet NIC on the v1.0 board, which is replaced by a reliable Realtek 10Gbps Ethernet NIC on the v2.2 board.</p>
+            
+            <div class="timeline-item">
+                <h3><span class="step-number">1</span> Motivation for Upgrade</h3>
+                <p>The GTR9 Pro v2.2 board replaces the defective Intel E610 10Gbps Ethernet NIC with a reliable Realtek 10Gbps Ethernet NIC. This upgrade was necessary to ensure stable network connectivity.</p>
+                <img src="v1.0_left_v2.2_right.jpg" alt="Side-by-side comparison of v1.0 and v2.2 boards" class="journal-image">
+                <figcaption>Side-by-side comparison of the v1.0 (left) and v2.2 (right) boards</figcaption>
+            </div>
+            
+            <div class="timeline-item">
+                <h3><span class="step-number">2</span> Time Investment</h3>
+                <p>Total time spent: Approximately 4 hours including preparation, disassembly, assembly, and testing.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="intro-section" id="preparation">
+        <h2>🛠️ Preparation</h2>
+        <div class="cta-box">
+            <span class="nav-arrow-down" onclick="smartScrollToSection('#disassembly-v1')">⬇️</span>
+            <span class="nav-arrow-up" onclick="smartScrollToSection('#project-overview')">⬆️</span>
+            
+            <div class="timeline-item">
+                <h3><span class="step-number">3</span> Tools Required</h3>
+                <p>Before starting the replacement, I gathered all necessary tools:</p>
+                <ul>
+                    <li>Phillips head screwdrivers (various sizes)</li>
+                    <li>Plastic prying tools</li>
+                    <li>Small containers for screws</li>
+                    <li>Good lighting and workspace</li>
+                </ul>
+            </div>
+            
+            <div class="timeline-item">
+                <h3><span class="step-number">4</span> New v2.2 Board</h3>
+                <p>Here's the new v2.2 board that will replace the original v1.0 board:</p>
+                <img src="v2.2_board_cpu_front.jpg" alt="GTR9 Pro v2.2 board front view" class="journal-image">
+                <figcaption>New v2.2 board - front view</figcaption>
+                
+                <img src="v2.2_board_cpu_back.jpg" alt="GTR9 Pro v2.2 board back view" class="journal-image">
+                <figcaption>New v2.2 board - back view</figcaption>
+            </div>
+        </div>
+    </section>
+
+    <section class="screenshots-section" id="disassembly-v1">
+        <div class="cta-box">
+            <span class="nav-arrow-down" onclick="smartScrollToSection('#assembly-v2')">⬇️</span>
+            <span class="nav-arrow-up" onclick="smartScrollToSection('#preparation')">⬆️</span>
+            <h2>🔨 Demontage V1.0</h2>
+            
+            <div class="timeline-item">
+                <h3><span class="step-number">5</span> Opening the Case</h3>
+                <p>First, carefully removing the back cover to access the internal components:</p>
+                <img src="v1.0_opencase.jpg" alt="Opening the GTR9 Pro case" class="journal-image">
+                <figcaption>Opening the GTR9 Pro case to access internal components</figcaption>
+            </div>
+            
+            <div class="timeline-item">
+                <h3><span class="step-number">6</span> Removing the Old Board - Front View</h3>
+                <p>Carefully disconnecting cables and removing the v1.0 board:</p>
+                <img src="v1.0_cpu_front.jpg" alt="GTR9 Pro v1.0 board front view" class="journal-image">
+                <figcaption>v1.0 board - front view before removal</figcaption>
+            </div>
+            
+            <div class="timeline-item">
+                <h3><span class="step-number">7</span> Removing the Old Board - Back View</h3>
+                <p>Documenting the back of the v1.0 board before complete removal:</p>
+                <img src="v1.0_cpu_back.jpg" alt="GTR9 Pro v1.0 board back view" class="journal-image">
+                <figcaption>v1.0 board - back view before removal</figcaption>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assembly Section -->
+    <section class="setup-section" id="assembly-v2">
+        <h2>⚙️ Assembly V2.2</h2>
+        <div class="cta-box">
+            <span class="nav-arrow-down" onclick="smartScrollToSection('#comparison')">⬇️</span>
+            <span class="nav-arrow-up" onclick="smartScrollToSection('#disassembly-v1')">⬆️</span>
+            
+            <div class="timeline-item">
+                <h3><span class="step-number">8</span> Installing the New Board - Front View</h3>
+                <p>Installing the v2.2 board in the device housing:</p>
+                <img src="v2.2_cpu_front_prep.jpg" alt="Installing v2.2 board front view" class="journal-image">
+                <figcaption>Installing the v2.2 board - front view</figcaption>
+            </div>
+            
+            <div class="timeline-item">
+                <h3><span class="step-number">9</span> Detailed Front Installation</h3>
+                <p>Careful alignment and connection of components:</p>
+                <img src="v2.2_cpu_front_prep_detail.jpg" alt="Detailed view of v2.2 board installation" class="journal-image">
+                <figcaption>Detailed view of v2.2 board installation</figcaption>
+            </div>
+            
+            <div class="timeline-item">
+                <h3><span class="step-number">10</span> Back Installation</h3>
+                <p>Securing the back connections of the v2.2 board:</p>
+                <img src="v2.2_cpu_back_prep.jpg" alt="Installing v2.2 board back view" class="journal-image">
+                <figcaption>Installing the v2.2 board - back view</figcaption>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section" id="comparison">
+        <h2>🔍 V1.0 vs V2.2 Comparison</h2>
+        <div class="cta-box">
+            <span class="nav-arrow-down" onclick="smartScrollToSection('#results')">⬇️</span>
+            <span class="nav-arrow-up" onclick="smartScrollToSection('#assembly-v2')">⬆️</span>
+            
+            <div class="timeline-item">
+                <h3><span class="step-number">11</span> Side-by-Side Comparison</h3>
+                <p>Direct comparison showing the differences between the two boards:</p>
+                <img src="v1.0_left_v2.2_right.jpg" alt="Side-by-side comparison of v1.0 and v2.2 boards" class="journal-image">
+                <figcaption>Direct comparison: v1.0 (left) vs v2.2 (right)</figcaption>
+                
+                <p>The v2.2 board features improved components and layout compared to the original v1.0 board.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="final-download-section" id="results">
+        <div class="cta-box">
+            <span class="nav-arrow-down" onclick="smartScrollToSection('#other-tools')">⬇️</span>
+            <span class="nav-arrow-up" onclick="smartScrollToSection('#comparison')">⬆️</span>
+            <h2>🎉 Results & Conclusion</h2>
+            
+            <div class="timeline-item">
+                <h3><span class="step-number">12</span> Completed Installation</h3>
+                <p>After 4 hours of careful work, the v2.2 board is successfully installed:</p>
+                <p>The replacement was successful! The GTR9 Pro now runs with the v2.2 board, featuring the reliable Realtek 10Gbps Ethernet NIC instead of the defective Intel E610 NIC.</p>
+                
+                <h3>Changes:</h3>
+                <ul>
+                    <li>Realtek 10Gbps Ethernet NIC replaces defective Intel E610</li>
+                    <li>Different component layout on v2.2 board</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Products Section -->
+    <section class="other-products-section" id="other-tools">
+        <h2>Discover our tools and games:</h2>
+
+        <div class="cta-box" id="spaceship-intro">
+            <span class="nav-arrow-down" onclick="smartScrollToSection('#spaceship-website')">⬇️</span>
+            <span class="nav-arrow-up" onclick="smartScrollToSection('#other-products-intro')">⬆️</span>
+            <h3>New Spaceship - Retro Mini Game</h3>
+            <p>Retro Arcade 2d side-scroller bullet-hell shmup game</p>
+
+            <h4>🏠 Website:</h4>
+            <p>
+                <a href="http://tetramatrix.github.io/spaceship" target="_blank">
+                    <img src="start.jpg" title="Retro Arcade 2d side-scroller bullet-hell shmup game" alt="Spaceship" />
+                </a>
+            </p>
+  
+
+      
+            <h4>Featured on itch.io</h4>
+            <figure class="product-fig">
+                <a href="https://tetramatrix.itch.io/old-school-retro-mini-game-spaceship">
+                    <img src="250516_ezgif.com-optimize.gif" alt="New Spaceship - Retro Mini Game" />
+                </a>
+            </figure>
+      
+            <h4>Featured on IndieDB</h4>
+            <figure class="product-fig">
+                <a href="https://www.indiedb.com/games/new-spaceship" title="View New Spaceship on IndieDB" target="_blank">
+                    <img src="https://button.indiedb.com/popularity/medium/games/86877.png" alt="New Spaceship" />
+                </a>
+            </figure>
+        </div>
+   
+     <h3>🚀 Sorana - The Visual AI Workspace:</h3>
+        <div class="cta-box" id="aicono-intro">
+            <span class="nav-arrow-down" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">⬇️</span>
+            <span class="nav-arrow-up" onclick="smartScrollToSection('#ryzenzpilot-intro')">⬆️</span>
+            <p>Sorana is an AI-powered visual workspace that transforms how you organize and interact with digital files. Using semantic AI analysis, it automatically groups related files and folders onto a spatial 2D canvas, replacing traditional hierarchies with intuitive visual layouts. Build drag-and-drop workspaces and no-code agent pipelines, connect to on-prem or cloud AI backends (OpenAI, Mistral, LLamacpp, Lemonade, Ollama), and keep your data under your control.</p>
+
+            <h4>🏠 Website:</h4>
+            <p>
+                <a href="https://tetramatrix.github.io/Sorana/" target="_blank">
+			<img src="Sorana_main.png" title="🏠 Sorana - The Visual AI Workspace">
+		</a>
+            </p>
+
+            <h4>🔥 Featured on Softpedia:</h4>
+            <p>
+                <a href="https://www.softpedia.com/get/System/File-Management/Sorana.shtml" target="_blank"><img src="softpedia.png" width="200px" height="60px" alt="Get it from Softpedia" /></a>
+            </p>
+
+            <h4>🔥 Featured on Microsoft Store:</h4>
+            <p>
+                <a href="https://apps.microsoft.com/detail/9n8c43pzc1rn" target="_blank"><img src="ms-store.svg" width="200px" height="60px" alt="Get it from Microsoft" /></a>
+            </p>
+        </div>
+
+        <div class="cta-box" id="aicono-intro">
+            <span class="nav-arrow-down" onclick="smartScrollToSection('#aicono-website')">⬇️</span>
+            <span class="nav-arrow-up" onclick="smartScrollToSection('#spaceship-indiedb')">⬆️</span>
+            <h3>Aicono - AI Intelligent Desktop Icon Autopilot</h3>
+            <p>Aicono automatically organizes your cluttered Windows desktop using AI. Group icons intelligently, arrange them neatly!</p>
+
+            <h4>🏠 Website:</h4>
+            <p>
+                <a href="http://tetramatrix.github.io/Aicono" target="_blank">
+                    <img src="Aicono_main.png" title="AI Intelligent Desktop Icon Autopilot" alt="Aicono" />
+                </a>
+   	    </p>
+        </div>
+
+        <div class="cta-box" id="ryzenzpilot-intro">
+            <span class="nav-arrow-down" onclick="smartScrollToSection('#ryzenzpilot-website')">⬇️</span>
+            <span class="nav-arrow-up" onclick="smartScrollToSection('#aicono-alternative')">⬆️</span>
+            <h3>RyzenZPilot - AMD Ryzen Power Management Tool</h3>
+            <p>RyzenZPilot is a powerful tool for managing AMD Ryzen processor power settings on Windows.
+            It allows users to adjust CPU performance, power limits, and thermal configurations
+            for optimal performance and efficiency.</p>
+            <h4>🏠 Website:</h4>
+            <p>
+                <a href="http://tetramatrix.github.io/RyzenZPilot" target="_blank">
+                    <img src="RyzenZPilot_3.1.3.png" title="AMD Ryzen Power Management Tool" alt="RyzenZPilot" />
+                </a>
+           </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 20px; margin-top: 40px; color: var(--text-secondary);">
+        <p>GTR9 Pro v2.2 Board Replacement Journal | Documented by Tetramatrix</p>
+        <p>© 2026 All rights reserved</p>
+    </footer>
+</main>
+</body>
+</html>
