@@ -321,7 +321,7 @@ function smartScrollToSection(targetId) {
 
 
         <div class="cta-box" id="spaceship-intro">
-            <span class="nav-arrow-down" onclick="smartScrollToSection('#sorana-intro')">⬇️</span>
+            <span class="nav-arrow-down" onclick="smartScrollToSection('#spaceship-website')">⬇️</span>
             <span class="nav-arrow-up" onclick="smartScrollToSection('#results')">⬆️</span>
 
             <h3>New Spaceship - Retro Mini Game</h3>
